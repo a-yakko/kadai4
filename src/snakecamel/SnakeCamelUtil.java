@@ -6,7 +6,7 @@ public class SnakeCamelUtil {
 		String[] words = snake_case.split("_");
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < words.length; i++) {
-			sb.append(capitalize(words[i]));
+			if(words[i]!="")sb.append(capitalize(words[i]));
 		}
 		return new String(sb);
 	}
@@ -30,10 +30,10 @@ public class SnakeCamelUtil {
 	}
 	
 	static String capitalize(String s) {
-		if(s==""){
+		if(s.length()==0){
 			return "";
-		}else{char first = s.charAt(0);
-		
+		}else{
+			char first = s.charAt(0);
 		char upperFirst = Character.toUpperCase(first);
 		String rest = s.substring(1);
 		return upperFirst + rest;
